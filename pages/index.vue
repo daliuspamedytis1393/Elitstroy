@@ -17,7 +17,7 @@ export default {
   },
   name: "IndexPage",
   async asyncData({ $content }) {
-    const posts = await $content("blog").fetch();
+    // const posts = await $content("blog").fetch();
 
     return {
       posts,
