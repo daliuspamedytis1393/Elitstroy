@@ -14,7 +14,7 @@ export default {
   name: "IndexPage",
   async asyncData({ $content }) {
     try {
-      const baba = await $content("content").fetch();
+      const baba = await $content("blog").fetch();
       console.log("baba", baba);
     } catch (err) {
       console.log(err);
