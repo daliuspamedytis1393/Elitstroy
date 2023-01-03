@@ -1,5 +1,9 @@
 <template>
-  <Tutorial />
+  <div>
+    <li v-for="post of posts" :key="post.slug">
+      <NuxtLink :to="post.slug">{{ post.title }}</NuxtLink>
+    </li>
+  </div>
 </template>
 
 <script>
@@ -12,13 +16,15 @@ export default {
     };
   },
   name: "IndexPage",
+  mounted() {
+    console.log("fafafa");
+  },
   async asyncData({ $content }) {
-    try {
-      const baba = await $content("blog").fetch();
-      console.log("baba", baba);
-    } catch (err) {
-      console.log(err);
-    }
+    const posts = await $content("blog").fetch();
+
+    return {
+      posts,
+    };
   },
 };
 </script>
