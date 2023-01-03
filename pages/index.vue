@@ -16,9 +16,6 @@ export default {
     };
   },
   name: "IndexPage",
-  mounted() {
-    console.log("fafafa");
-  },
   async asyncData({ $content }) {
     const posts = await $content("blog").fetch();
 
