@@ -1,21 +1,24 @@
 <template>
-  <div>
-    <li v-for="post of posts" :key="post.slug">
-      <NuxtLink :to="post.slug">{{ post.title }}</NuxtLink>
-    </li>
-  </div>
+  <Tutorial />
 </template>
 
 <script>
 export default {
-  async asyncData({ $content }) {
-    const posts = await $content("content").fetch();
-
-    console.log(posts);
-
+  head() {
     return {
-      posts,
+      script: [
+        { src: "https://identity.netlify.com/v1/netlify-identity-widget.js" },
+      ],
     };
+  },
+  name: "IndexPage",
+  async asyncData({ $content }) {
+    try {
+      const baba = await $content("content").fetch();
+      console.log("baba", baba);
+    } catch (err) {
+      console.log(err);
+    }
   },
 };
 </script>
